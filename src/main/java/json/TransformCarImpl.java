@@ -15,7 +15,7 @@ public class TransformCarImpl implements TransformCar {
 
     public List<Car> fromFile(String json) {
         JSONObject root = new JSONObject(json);
-        JSONArray cars = root.getJSONArray("cars");
+        JSONArray cars = root.getJSONArray("car");
         List<Car> carsList = new ArrayList();
         for (int i=0;i<cars.length();i++){
             JSONObject ob=cars.getJSONObject(i);
@@ -26,6 +26,7 @@ public class TransformCarImpl implements TransformCar {
             car.setModel(model);
             car.setColor(color);
             car.setCost(cost);
+            carsList.add(car);
         }
         return carsList;
     }
